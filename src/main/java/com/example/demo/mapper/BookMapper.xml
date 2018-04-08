@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.BookMapper">
+
+    <resultMap id="bookMap" type="com.example.demo.model.Book">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="price" property="price"/>
+        <association  property="author" resultMap="authorMap"></association>
+    </resultMap>
+	<resultMap id="authorMap" type="com.example.demo.model.Author">
+        <id column="a_id" property="a_id"/>
+        <result column="author" property="author"/>
+    </resultMap>
+
+    <select id="findAuthor" parameterType="Integer" resultMap="bookMap">
+        SELECT *
+        FROM author a , book b
+        where b.author_key = a.a_id and b.id = #{id}
+    </select>
+ </mapper>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+<meta charset="UTF-8"/>
+<title>书籍列表</title>
+</head>
+<body>
+	<table width="80%" align="center" border="1">
+	<tr>
+		<th colspan="4">
+			<form action="/book/getBook">
+				<input type="text" name="name"/>
+				<input type="submit" value="查询"/>
+			</form>
+		</th>
+	</tr>
+		<tr>
+			<th>编号</th>
+			<th>书名</th>
+			<th>价格</th>
+			<th colspan="3">操作</th>
+		</tr>
+		<tr th:each="book:${books}">
+			<td th:text="${book.id}">编号获取失败</td>
+			<td th:text="${book.name}">书名获取失败</td>
+			<td th:text="${book.price}">价格获取失败</td>
+			<td colspan="3">
+				<a th:href="@{/book/to_edit(name=${book.name})}">编辑</a>
+				<a th:href="@{/book/delete(id=${book.id})}">删除</a>
+				<a th:href="@{/book/findAuthor(id=${book.id})}">查看作者</a>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

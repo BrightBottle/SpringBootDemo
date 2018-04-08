@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+<meta charset="UTF-8"/>
+<title>作者列表</title>
+</head>
+<body>
+	<ul th:each="writer:${authors}">
+		<li>
+			<a th:href="@{/author/findBook(id=${writer.a_id})}" th:text="${writer.author}">书籍获取失败</a>
+		</li>
+	</ul>
+</body>
+</html>

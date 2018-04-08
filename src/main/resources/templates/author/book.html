@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+<meta charset="UTF-8"/>
+<title>书籍</title>
+</head>
+<body>
+	<table th:each="author:${authors}">
+		<tr th:each="books:${author.books}">
+			<td th:text="${books.name}">书籍获取失败</td>
+		</tr>
+	</table>
+</body>
+</html>

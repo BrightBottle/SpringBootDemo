@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+<meta charset="UTF-8"/>
+<title>修改价格</title>
+</head>
+<body>
+	<form action="/book/do_edit" th:each="book:${book}">
+		编号:<input type="text" readonly="readonly" name="id" th:value="${book.id}"/>
+		书名:<input type="text" readonly="readonly" name="name" th:value="${book.name}"/>
+		价格:<input type="text" name="price" th:value="${book.price}"/>
+		<input type="submit" value="修改"/>
+	</form>
+</body>
+</html>

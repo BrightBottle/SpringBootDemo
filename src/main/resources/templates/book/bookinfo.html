@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+<meta charset="UTF-8"/>
+<title>用户信息</title>
+</head>
+<body>
+	<table width="80%" align="center" border="1">
+		<tr>
+			<th>编号</th>
+			<th>书名</th>
+			<th>价格</th>
+		</tr>
+		<tr th:each="book:${book}">
+			<td th:text="${book.id}">编号获取失败</td>
+			<td th:text="${book.name}">书名获取失败</td>
+			<td th:text="${book.price}">价格获取失败</td>
+		</tr>
+	</table>
+</body>
+</html>
